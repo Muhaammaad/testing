@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  disease: MyString
+  comments: MyText
+  date: 2016-04-17
+  User: 
+  Pdetail: 
+
+two:
+  disease: MyString
+  comments: MyText
+  date: 2016-04-17
+  User: 
+  Pdetail: 

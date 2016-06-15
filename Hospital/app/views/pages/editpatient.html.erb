@@ -1,0 +1,39 @@
+<form action="<%=pages_savedetail_path%>" class = "form-inline" role = "form">
+   <div class="col-md-12 col-sm-offset-4">
+   
+   <div class = "form-group">
+      <label class = "sr-only" for = "name">firstName</label>
+      <input value="<%=@p.first_name%>" name = "first_name" type = "text" class = "form-control" id = "fname" placeholder = "First Name">
+      <label class = "sr-only" for = "name">lastName</label>
+      <input value="<%=@p.last_name%>" name = "last_name" type = "text" class = "form-control" id = "lname" placeholder = "Last Name">
+   </div>
+    <br/>
+    <div>
+    <label class = "sr-only" for = "name">Contact</label>
+      <input value="<%=@p.contact%>" name = "contact" type = "text" class = "form-control" id = "contact" placeholder = "(845)555-1212">
+   
+    <label class = "sr-only" for = "name">Age</label>
+      <input value="<%=@p.age%>" name = "age"type = "number" class = "form-control" id = "age" placeholder = "Age">
+    </div>
+    <br/>
+  
+   <div>
+   <label class = "checkbox-inline">
+      <input  value="<%=@p.male%>" type = "radio" name = "optionsRadiosinline" id = "optionsRadios4" value = "option2"> Female
+   </label>
+
+   <label class = "checkbox-inline">
+      <input  value="<%=@p.male%>" type = "radio" name = "optionsRadiosinline" id = "optionsRadios3" value = "option1" checked> Male
+   </label>
+   </div>
+    <br/>
+ <div class = "form-group">
+      <label class = "sr-only" for = "inputfile">File input</label>
+      <input type = "file" id = "inputfile">
+   </div>
+    <br/>
+   
+ <br />
+   <button type = "submit" class = "btn btn-default">Submit</button>
+</div>
+</form>

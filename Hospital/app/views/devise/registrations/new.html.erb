@@ -1,0 +1,59 @@
+<%= bootstrap_devise_error_messages! %>
+<div style='width: 32%; margin: auto;'>
+<div class="panel panel-default devise-bs">
+  <div class="panel-heading">
+    <h4><%= t('.sign_up', :default => "Sign up") %></h4>
+  </div>
+  <div class="panel-body">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f| %>
+    <div class="row" style="padding-left: 0;padding-right: 0;">
+      <div class="form-group" >
+        <div class="col-md-6"  >
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, autofocus: true, class: "form-control" ,required: true%>
+         </div>
+         <div class="col-md-6">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, autofocus: true, class: "form-control" %>
+        </div>
+      </div>
+</div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+
+      <div class="row">
+      <div class="col-md-6">
+
+        <div class="field" >
+
+           <%= f.label :gender %></br>
+           <span class="option">Male  <span><%= f.radio_button :male, 'true' %>
+           <span class="option">Female  <span><%= f.radio_button :male, 'false' %></br>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="field" >    
+           <%= f.label :Type %></br>
+           <span class="option">Admin  <span><%= f.radio_button :admin, 'true' %>
+           <span class="option">Doctor  <span><%= f.radio_button :admin, 'false' %></br></br>
+        </div>
+      </div>
+      <div style="float: right;">
+      <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+<%= render "devise/shared/links" %>
+</div>

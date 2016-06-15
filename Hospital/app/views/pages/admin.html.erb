@@ -1,0 +1,155 @@
+
+<div class="col-md-12">
+<form action="<%= pages_deletepatient_path%>">
+<div >
+         <button type="submit"  class="btn btn-danger pull-right" >Delete Selected</button>
+   <%= link_to "Add Patient",pages_addpatient_path, class: 'btn btn-success pull-right'  %>
+       
+          
+        </div><!--/.navbar-collapse -->
+<div>
+
+
+
+<h1>ALL RECORDS</h1>
+<!-- Indicates a successful or positive action -->
+
+<!-- Contextual button for informational alert messages -->
+
+<table class="table table-striped">
+  <thead class="thead-default">
+    <tr>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Contact</th>
+      <th>Gender</th>
+      <th>Delete</th>
+      <th>Edit</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+ 
+ <div>
+  <% @pdetail.each do |p| %>
+   <!--<p><%=p.id%> <%=p.first_name%> <%=p.last_name%> <%=p.age%></p>-->
+   
+    <tr> 
+      <td scope="row"><%=p.id%></td>
+      <td><%=p.first_name%></td>
+      <td> <%=p.last_name%></td>
+      <td><%=p.age%></td>
+      <td><%=p.contact%></td>
+      <% if (p.male) %>
+      <td>Male</td>
+    <% else %>
+      <td>Female</td>
+    <% end %>
+      
+
+    <td><input type="checkbox" name="delete[]" value="<%= p.id%>" />
+    </td>
+    <td><a href="<%=pages_editpatient_url(id: p.id) %>"  >Edit</a>
+    </td>
+    
+    </tr>
+
+
+    
+  <%end%>
+ </tbody>
+
+ </table>
+ 
+</form>
+</div>
+</div>
+
+ 
+
+<div class="container">
+    <div class="row">    
+        <div class="col-xs-8 col-xs-offset-2">
+        <div class="input-group">
+                 <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      <select id="search_concept">Filter by<option class="caret" value="first_name">By name</option>
+                        <option class="caret" value="age">By age</option>
+                        <option class="caret" value="male">By Gender</option>
+                        <option class="caret" value="sort">Sort by</option>
+                      </select> 
+                    </button>
+                    <!-- <ul class="dropdown-menu" role="menu">
+                      <li><a href="#contains">Contains</a></li>
+                      <li><a href="#its_equal">It's equal</a></li>
+                      <li><a href="#greather_than">Greather than ></a></li>
+                      <li><a href="#less_than">Less than < </a></li>
+                      <li class="divider"></li>
+                      <li><a href="#all">Anything</a></li>
+                    </ul> -->
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="Search Patient.." id="search" >
+                
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+             </div>
+  </div>
+</div>
+
+
+
+<div id= "searchh">
+<h1>Searched RECORDS</h1>
+<table class="table table-striped">
+  <thead class="thead-default">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>agee</th>
+    </tr>
+  </thead>
+  <tbody id = "body1">
+ 
+  </tbody>
+
+ </table>
+</div>
+
+
+
+
+<script>
+  $(function(){
+$('#searchh').hide()
+
+  $('#search').on('change', function(){
+    $.ajax({
+      url: '/pages/doc.json',
+      type: 'get',
+     data: {'search_val': $('#search').val(),'search_type': $('#search_concept').val()},
+ success: function(data){
+        console.log(data);
+       $('#body1').html("");
+        if ($('#search').val()!="")
+        $("#searchh").show()
+        else
+$('#searchh').hide()
+
+        data.forEach(function(val){
+          $('#search_results').append('<p>'+ val.first_name+'</p>') 
+          $('#body1').append('<tr>'+'<td>'+ val.first_name+'</td>'+'<td>'+ val.last_name+'</td>'+'<td>'+ val.age+'</td>'+'</tr>')
+           $('#ha').append('<li>'+ val.first_name+'<br />'+'<span>'+ val.last_name+ val.age+'</span>'+'</li>')
+          
+        });
+      },
+    });
+
+  })
+
+  });
+</script>

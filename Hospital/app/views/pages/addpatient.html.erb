@@ -1,0 +1,54 @@
+<form action="<%=pages_savedetail_path%>" class = "form-inline" role = "form">
+   <div class="col-md-12 col-sm-offset-4">
+   <h3>Patient Details:</h3>
+   <div class = "form-group" >
+      <label class = "sr-only" for = "name">firstName</label>
+      <input name = "first_name"  type = "text" class = "form-control" id = "fname" placeholder = "Enter First Name">
+      <label class = "sr-only" for = "name">lastName</label>
+      <input name = "last_name" required pattern="\w+"type = "text" class = "form-control" id = "lname" placeholder = "Enter Last Name">
+   </div>
+    <br/>
+
+    <br/>
+    <div>
+    <label class = "sr-only" for = "name">Contact</label>
+      <input name= "contact" type = "number" required pattern="\w+"class = "form-control" id = "contact" placeholder = "0123-4567890">
+   
+    <label class = "sr-only" for = "name">Age</label>
+      <input name= "age" type = "number" class = "form-control" id = "age" placeholder = "Enter Age">
+    </div>
+    <br/>
+  
+   <div>
+   <label class = "checkbox-inline">
+      <input  type = "radio" name = "male" id = "optionsRadios4" value = "false"> Female
+   </label>
+
+   <label class = "checkbox-inline">
+      <input  type = "radio" name = "male" id = "optionsRadios3" value = "true" checked> Male
+   </label>
+   </div>
+    <br/>
+ <div class = "form-group">
+      <label class = "sr-only" for = "inputfile">File input</label>
+      <input type = "file" id = "inputfile">
+
+   </div>
+    <br/>
+   <h3>Patient History:</h3>
+   <div class = "form-group" >
+      <label class = "sr-only" for = "name">disease</label>
+      <input name = "first_name" type = "text" class = "form-control" id = "fname" placeholder = "Enter Disease">
+   </div>
+    <br/>
+    <br/>
+    <textarea name="detail" class ="form-control" rows="4" cols="50"placeholder = "Enter Comments">
+</textarea></p>
+
+ <br />
+   <button type = "submit" class = "btn btn-default">Submit</button>
+ </div>
+</form>
+
+
+
